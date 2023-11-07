@@ -83,6 +83,19 @@ app.post("/:todoId", authenticateJwt, async (req, res) => {
   res.json({ message: " Todo inserted!" });
 });
 
+app.post("/login/:todoId", async (req, res) => {
+  const { password } = req.body;
+  const { todo } = req.params.todoId;
+  const user = await User.findOne({ todo: req.params.todoId, password });
+  console.log(user);
+  if (user) {
+    const token = jwt.sign({ todo, password }, SECRET, { expiresIn: "24h" });
+    res.json({ message: "Logged in successfully", todoId: todo, token });
+  } else {
+    res.json({ message: " wrong password! " });
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
