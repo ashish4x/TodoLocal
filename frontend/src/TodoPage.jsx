@@ -129,7 +129,17 @@ else{
       
       <div className="bg-slate-200 min-h-screen py-8">
                 <div className="w-full max-w-2xl mx-auto shadow-lg bg-slate-200 rounded-lg px-4 py-3 text-black">
-                    <h1 className="text-2xl text-black font-bold text-center mb-8 mt-2">{ListName}</h1>
+                    <h1 className="text-2xl text-black font-bold text-center  mt-2">{ListName}</h1>
+                    <p className='text-gray-700 font-medium text-center mb-5  '>Share the link with your friends. Manage things together 🔗</p>
+
+                    <div className='text-center'>
+                    <button 
+                    className="px-2 py-2 mb-2 mt-5 text-sm font-medium text-center text-white bg-gray-500 rounded-lg hover:bg-gray-700 "
+  onClick={() =>  navigator.clipboard.writeText('https://localtodoapp.vercel.app/'+todoId)}
+>
+  Copy the Todo Link 📋
+</button>
+</div>
                     <div className="mb-4">
                         <TodoForm/>
                     </div>

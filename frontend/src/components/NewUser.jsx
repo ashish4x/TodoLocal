@@ -57,13 +57,13 @@ function NewUser() {
     <form>
         
         <div className="mb-5 flex justify-center"> {/* Center the input horizontally */}
-            <div className="w-1/3">
+            <div className="">
                 <label for="email" className="block mb-2 text-m font-semibold text-gray-900">Todo Name</label>
                 <input
                     type="text"
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    placeholder="Final year project checklist"
+                    placeholder="Summer project"
                     value={TodoName}
                     onChange={(e)=> setTodoName(e.target.value)}
                     required
@@ -71,7 +71,7 @@ function NewUser() {
             </div>
         </div>
         <div className="mb-3 flex justify-center"> {/* Center the input horizontally */}
-            <div className="w-1/3">
+            <div className="">
                 <label for="password" className="block mb-2 text-m font-semibold text-gray-900"> Password</label>
                 <input
                     type="password"
@@ -87,7 +87,7 @@ function NewUser() {
             <button
                 type="submit"
                 onClick={generateToken}
-                className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+                className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm w-1/2 sm:w-auto px-5 py-2.5 text-center "
             >
                 Submit
             </button>
