@@ -43,7 +43,11 @@ function TodoPage() {
   
   
         });
-  }}
+  }
+else{
+  console.log("not logged in!");
+  navigate("/"+todoId+"/login");
+}}
 
 
   const addTodo = (todo) =>{
