@@ -72,7 +72,7 @@ useEffect(() => {
     <form>
         
         <div className="mb-5 flex justify-center"> {/* Center the input horizontally */}
-            <div className="w-1/3 text-center">
+            <div className=" text-center">
             
 
                 <h2 className=' text-xl font-medium'>Enter Password to access <span className='text-purple-600 font-bold '>{TodoName}</span> Todo</h2>
