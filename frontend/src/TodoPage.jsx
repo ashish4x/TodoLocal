@@ -28,7 +28,7 @@ function TodoPage() {
   
       
       // Make a GET request to your API endpoint using Axios with the JWT token in the headers
-      axios.get('http://localhost:3000/'+todoId, axiosConfig)
+      axios.get('https://todo-backend-tyler.vercel.app/'+todoId, axiosConfig)
         .then((response) => {
           // Assuming response.data is an array of todos
           console.log(response.data)
@@ -94,7 +94,7 @@ function TodoPage() {
         },
       };
 
-      const url = `http://localhost:3000/${todoId}/update`;
+      const url = `https://todo-backend-tyler.vercel.app/${todoId}/update`;
       const data = todos
       console.log(data);
 

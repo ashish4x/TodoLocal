@@ -17,7 +17,7 @@ const generateToken= (e)=>{
    else{
   
 
-    const url = 'http://localhost:3000/login/'+todoId;
+    const url = 'https://todo-backend-tyler.vercel.app/login/'+todoId;
     const data = {
         
         password
@@ -50,7 +50,7 @@ const generateToken= (e)=>{
 useEffect(() => {
     
     
-    axios.get('http://localhost:3000/'+todoId+'/name')
+    axios.get('https://todo-backend-tyler.vercel.app/'+todoId+'/name')
       .then((response) => {
         // Assuming response.data is an array of todos
         console.log(response.data)

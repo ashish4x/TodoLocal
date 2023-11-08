@@ -20,7 +20,7 @@ function NewUser() {
        else{
       
 
-        const url = 'http://localhost:3000/new';
+        const url = 'https://todo-backend-tyler.vercel.app/new';
         const data = {
             name: TodoName ,
             password: Password
