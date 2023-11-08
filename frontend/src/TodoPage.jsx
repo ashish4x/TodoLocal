@@ -12,6 +12,7 @@ function TodoPage() {
   const [todos,setTodos]= useState([])
   const [ListName,setListName]=useState("")
   const { todoId } = useParams();
+  const [firstReload, setfirstReload] = useState(true)
 
   const settingTodo=()=>{
     const authToken = localStorage.getItem("token")
@@ -81,11 +82,13 @@ function TodoPage() {
 
   useEffect(() => {
 
-    if(todos.length===0){
+    if((todos.length===0) && (firstReload==true)){
+      setfirstReload(false);
       settingTodo();
+
       
     }
-    else{
+    if(todos.length!=0){
        const authToken = localStorage.getItem('token');
     if (authToken) {
       const axiosConfig = {
