@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import connectDB from "./src/db/index.js";
+import connectDB from "./db/index.js";
 import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
