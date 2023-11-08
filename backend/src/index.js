@@ -118,7 +118,7 @@ app.post("/:todoId/update", authenticateJwt, async (req, res) => {
 
   if (req.user.password === user.password) {
     const todo = await Todo.findOne({ todoId });
-    
+
     todo.todoList = newTodo;
 
     // Save the updated document
@@ -141,6 +141,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Example app listening on port ${process.env.PORT}`);
 });
