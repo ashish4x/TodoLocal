@@ -19,7 +19,7 @@ const SECRET = process.env.SECRET;
 
 connectDB();
 
-// Define mongoose schemas
+// Define mongoose schemas here
 const todoSchema = new mongoose.Schema({
   todoId: String,
   todoList: [],
