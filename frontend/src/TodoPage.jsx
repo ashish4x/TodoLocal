@@ -4,6 +4,14 @@ import axios from 'axios'
 import { TodoProvider } from './contexts'
 import { TodoForm, TodoItem } from './components'
 import { useParams,useNavigate } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
+
+
+
+
 
 
 function TodoPage() {
@@ -13,8 +21,16 @@ function TodoPage() {
   const [ListName,setListName]=useState("")
   const { todoId } = useParams();
   const [firstReload, setfirstReload] = useState(true)
+  const [showCopyAlert, setShowCopyAlert] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText('https://group-todo.vercel.app/' + todoId);
+    setShowCopyAlert(true); // Set the state variable to true
+  }
+  
 
   const settingTodo=()=>{
+   
     const authToken = localStorage.getItem("token")
       console.log(authToken);
     
@@ -129,13 +145,23 @@ else{
       
       <div className="bg-slate-200 min-h-screen py-8">
                 <div className="w-full max-w-2xl mx-auto shadow-lg bg-slate-200 rounded-lg px-4 py-3 text-black">
+ 
+                  
                     <h1 className="text-2xl text-black font-bold text-center  mt-2">{ListName}</h1>
-                    <p className='text-gray-700 font-medium text-center mb-5  '>Share the link with your friends. Manage things together 🔗</p>
+                    <p className='text-gray-700 font-medium text-center mb-5  '>Share the link & password with your friends. Manage things together 🔗</p>
 
                     <div className='text-center'>
+                    {showCopyAlert && ( // Conditionally render the alert based on the state variable
+              <Alert onClose={() => setShowCopyAlert(false)}>
+                The link is successfully copied.
+              </Alert>
+            )}
+
                     <button 
-                    className="px-2 py-2 mb-2 mt-5 text-sm font-medium text-center text-white bg-gray-500 rounded-lg hover:bg-gray-700 "
-  onClick={() =>  navigator.clipboard.writeText('https://group-todo.vercel.app/'+todoId)}
+                    onClick={handleCopyLink}
+                    
+                    className="px-2 py-2 mb-2 mt-5 text-sm font-medium text-center text-white bg-purple-500 rounded-lg hover:bg-green-700 "
+  // onClick={() =>  navigator.clipboard.writeText('https://group-todo.vercel.app/'+todoId)}
 >
   Copy the Todo Link 📋
 </button>
